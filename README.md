@@ -1,6 +1,7 @@
 # ridiculous_coding for Godot
 
 Written by John Watson
+
 Edits by DerpyNinjaFrog
 
 Added more customizability
