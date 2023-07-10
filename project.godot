@@ -6,17 +6,28 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
+<<<<<<< HEAD
 config_version=5
+=======
+config_version=4
+>>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
 
 [application]
 
 config/name="Ridiculous Coding"
+<<<<<<< HEAD
 config/features=PackedStringArray("4.0")
+=======
+>>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
 config/icon="res://icon.png"
 
 [editor_plugins]
 
+<<<<<<< HEAD
 enabled=PackedStringArray("res://addons/ridiculous_coding/plugin.cfg")
+=======
+enabled=PoolStringArray( "res://addons/ridiculous_coding/plugin.cfg" )
+>>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
 
 [physics]
 
@@ -24,4 +35,8 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+<<<<<<< HEAD
 environment/defaults/default_environment="res://default_env.tres"
+=======
+environment/default_environment="res://default_env.tres"
+>>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e

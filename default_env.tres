@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_resource type="Environment" load_steps=2 format=3 uid="uid://cbloxge01h0js"]
 
 [sub_resource type="Sky" id="1"]
@@ -5,3 +6,12 @@
 [resource]
 background_mode = 2
 sky = SubResource("1")
+=======
+[gd_resource type="Environment" load_steps=2 format=2]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[resource]
+background_mode = 2
+background_sky = SubResource( 1 )
+>>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e

@@ -1,14 +1,23 @@
 [remap]
 
 importer="wav"
+<<<<<<< HEAD
 type="AudioStreamWAV"
 uid="uid://bfbhc7c5fhnaj"
 path="res://.godot/imported/blip.wav-b30aed86048a8d09a6b99458d730bd48.sample"
+=======
+type="AudioStreamSample"
+path="res://.import/blip.wav-b30aed86048a8d09a6b99458d730bd48.sample"
+>>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
 
 [deps]
 
 source_file="res://addons/ridiculous_coding/blip.wav"
+<<<<<<< HEAD
 dest_files=["res://.godot/imported/blip.wav-b30aed86048a8d09a6b99458d730bd48.sample"]
+=======
+dest_files=[ "res://.import/blip.wav-b30aed86048a8d09a6b99458d730bd48.sample" ]
+>>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
 
 [params]
 
@@ -16,9 +25,15 @@ force/8_bit=false
 force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
+<<<<<<< HEAD
 edit/trim=false
 edit/normalize=false
 edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
+=======
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+>>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
 compress/mode=0

@@ -1,9 +1,14 @@
 [remap]
 
 importer="texture"
+<<<<<<< HEAD
 type="CompressedTexture2D"
 uid="uid://bnuwo52e3or6m"
 path="res://.godot/imported/newline.png-03ec198c1b51eb116216995dcb893beb.ctex"
+=======
+type="StreamTexture"
+path="res://.import/newline.png-03ec198c1b51eb116216995dcb893beb.stex"
+>>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
 metadata={
 "vram_texture": false
 }
@@ -11,11 +16,16 @@ metadata={
 [deps]
 
 source_file="res://addons/ridiculous_coding/newline.png"
+<<<<<<< HEAD
 dest_files=["res://.godot/imported/newline.png-03ec198c1b51eb116216995dcb893beb.ctex"]
+=======
+dest_files=[ "res://.import/newline.png-03ec198c1b51eb116216995dcb893beb.stex" ]
+>>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
 
 [params]
 
 compress/mode=0
+<<<<<<< HEAD
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -32,3 +42,23 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+=======
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
+>>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
