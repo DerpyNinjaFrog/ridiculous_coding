@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @tool
 extends Control
 
@@ -44,42 +43,12 @@ func _ready():
 
 
 func load_experience_progress():
-=======
-tool
-extends Control
-
-var explosions = true
-var blips = true
-var chars = true
-var shake = true
-var sound = true
-var fireworks = true
-
-const BASE_XP = 50
-var xp : int = 0
-var xp_next : int = 2*BASE_XP
-var level : int = 1
-var stats : ConfigFile = ConfigFile.new()
-const STATS_FILE = "user://ridiculous_xp.ini"
-
-
-func _ready():
-	$VBoxContainer/GridContainer/explosionCheckbox.pressed = explosions
-	$VBoxContainer/GridContainer/blipCheckbox.pressed = blips
-	$VBoxContainer/GridContainer/charsCheckbox.pressed = chars
-	$VBoxContainer/GridContainer/shakeCheckbox.pressed = shake
-	$VBoxContainer/GridContainer/soundCheckbox.pressed = sound
-	$VBoxContainer/GridContainer/fireworksCheckbox.pressed = fireworks
-
-	# Load saved XP and level
->>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
 	if stats.load(STATS_FILE) == OK:
 		level = stats.get_value("xp", "level", 1)
 		xp = stats.get_value("xp", "xp", 0)
 	else:
 		level = 1
 		xp = 0
-<<<<<<< HEAD
 	
 	xp_next = 2*BASE_XP
 	progress.max_value = xp_next
@@ -91,30 +60,13 @@ func _ready():
 	progress.value = xp - (xp_next - progress.max_value)
 
 
-func save_experience_progress():
+func save_experioence_progress():
 	stats.set_value("xp", "level", level)
 	stats.set_value("xp", "xp", xp)
 	stats.save(STATS_FILE)
 
 
 func _on_typing():
-=======
-	var progress : TextureProgress = $VBoxContainer/XP/ProgressBar
-	xp_next = 2*BASE_XP
-	progress.max_value = xp_next
-	for i in range(2,level+1):
-		xp_next += round(BASE_XP * i / 10.0) * 10
-		progress.max_value = round(BASE_XP * level / 10.0) * 10
-	progress.value = xp - (xp_next - progress.max_value)
-
-	update_progress()
-	stop_fireworks()
-	
-
-func _on_typing():
-	var progress : TextureProgress = $VBoxContainer/XP/ProgressBar
-	
->>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
 	xp += 1
 	progress.value += 1
 	
@@ -124,25 +76,14 @@ func _on_typing():
 		progress.value = 0
 		progress.max_value = xp_next - xp
 		
-<<<<<<< HEAD
 		if fireworks: 
 			start_fireworks()
 	
-	save_experience_progress()
-=======
-		if fireworks: start_fireworks()
-	
-	# Save settings	
-	stats.set_value("xp", "level", level)
-	stats.set_value("xp", "xp", xp)
-	stats.save(STATS_FILE)
-	
->>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
+	save_experioence_progress()
 	update_progress()
 
 
 func start_fireworks():
-<<<<<<< HEAD
 	sfx_fireworks.play()
 	fireworks_timer.start()
 	
@@ -204,70 +145,22 @@ func save_checkbox_state():
 
 func load_checkbox_state():
 	if stats.load(STATS_FILE) == OK:
-		explosions = stats.get_value("settings", "explosion", true)
-		blips = stats.get_value("settings", "blips", true)
-		chars = stats.get_value("settings", "chars", true)
-		shake = stats.get_value("settings", "shake", true)
-		sound = stats.get_value("settings", "sound", true)
-		fireworks = stats.get_value("settings", "fireworks", true)
-	
-	explosion_checkbox.button_pressed = explosions
-	blip_checkbox.button_pressed = blips
-	chars_checkbox.button_pressed = chars
-	shake_checkbox.button_pressed = shake
-	sound_checkbox.button_pressed = sound
-	fireworks_checkbox.button_pressed = fireworks
+		explosion_checkbox.button_pressed = stats.get_value("settings", "explosion", true)
+		blip_checkbox.button_pressed = stats.get_value("settings", "blips", true)
+		chars_checkbox.button_pressed = stats.get_value("settings", "chars", true)
+		shake_checkbox.button_pressed = stats.get_value("settings", "shake", true)
+		sound_checkbox.button_pressed = stats.get_value("settings", "sound", true)
+		fireworks_checkbox.button_pressed = stats.get_value("settings", "fireworks", true)
+	else:
+		explosion_checkbox.button_pressed = explosions
+		blip_checkbox.button_pressed = blips
+		chars_checkbox.button_pressed = chars
+		shake_checkbox.button_pressed = shake
+		sound_checkbox.button_pressed = sound
+		fireworks_checkbox.button_pressed = fireworks
 
 
 func on_reset_button_pressed():
-=======
-	$VBoxContainer/XP/ProgressBar/sfxFireworks.play()
-	$VBoxContainer/XP/ProgressBar/fireworksTimer.start()
-	
-	$VBoxContainer/XP/ProgressBar/fire1/Particles2D.emitting = true
-	$VBoxContainer/XP/ProgressBar/fire2/Particles2D.emitting = true
-
-
-func stop_fireworks():
-	$VBoxContainer/XP/ProgressBar/fire1/Particles2D.emitting = false
-	$VBoxContainer/XP/ProgressBar/fire2/Particles2D.emitting = false
-
-	
-func update_progress():
-	var xpLabel := $VBoxContainer/XP/HBoxContainer/xpLabel
-	xpLabel.text = "XP: %d / %d" % [ xp, xp_next ]
-	
-	var levelLabel := $VBoxContainer/XP/HBoxContainer/levelLabel
-	levelLabel.text = "Level: %d" % level
-	
-
-func _on_explosionCheckbox_toggled(button_pressed):
-	explosions = button_pressed
-
-
-func _on_blipCheckbox_toggled(button_pressed):
-	blips = button_pressed
-
-
-func _on_shakeCheckbox_toggled(button_pressed):
-	shake = button_pressed
-
-
-func _on_charsCheckbox_toggled(button_pressed):
-	chars = button_pressed
-
-
-func _on_soundCheckbox_toggled(button_pressed):
-	sound = button_pressed
-
-
-func _on_fireworksCheckbox_toggled(button_pressed):
-	fireworks = button_pressed
-
-
-func _on_resetButton_pressed():
-	var progress = $VBoxContainer/XP/ProgressBar
->>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
 	level = 1
 	xp = 0
 	xp_next = 2*BASE_XP

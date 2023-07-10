@@ -1,23 +1,14 @@
 [remap]
 
 importer="wav"
-<<<<<<< HEAD
 type="AudioStreamWAV"
 uid="uid://bnadeocw0wetm"
 path="res://.godot/imported/fireworks.wav-f51025571a3b9e32e6113159ed26c3be.sample"
-=======
-type="AudioStreamSample"
-path="res://.import/fireworks.wav-f51025571a3b9e32e6113159ed26c3be.sample"
->>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
 
 [deps]
 
 source_file="res://addons/ridiculous_coding/fireworks.wav"
-<<<<<<< HEAD
 dest_files=["res://.godot/imported/fireworks.wav-f51025571a3b9e32e6113159ed26c3be.sample"]
-=======
-dest_files=[ "res://.import/fireworks.wav-f51025571a3b9e32e6113159ed26c3be.sample" ]
->>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
 
 [params]
 
@@ -27,11 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-<<<<<<< HEAD
 edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
-=======
-edit/loop=false
->>>>>>> 956a8497f35508b47de4618367e87e6e17e8a05e
 compress/mode=0
