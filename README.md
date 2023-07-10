@@ -4,7 +4,7 @@ Written by John Watson
 
 Edits by DerpyNinjaFrog
 
-Added more customizability
+Adding more customizability, cleaning, structuring project files, etc.
 
 ## What does it do?
 
