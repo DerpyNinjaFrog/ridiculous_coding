@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bnadeocw0wetm"
-path="res://.godot/imported/fireworks.wav-f51025571a3b9e32e6113159ed26c3be.sample"
+path="res://.godot/imported/fireworks.wav-9aac736b5c1ad5f740f36be1112d1d49.sample"
 
 [deps]
 
-source_file="res://addons/ridiculous_coding/fireworks.wav"
-dest_files=["res://.godot/imported/fireworks.wav-f51025571a3b9e32e6113159ed26c3be.sample"]
+source_file="res://addons/ridiculous_coding/assets/audio/fireworks.wav"
+dest_files=["res://.godot/imported/fireworks.wav-9aac736b5c1ad5f740f36be1112d1d49.sample"]
 
 [params]
 

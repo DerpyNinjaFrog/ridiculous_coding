@@ -1,3 +1,7 @@
-res://addons/ridiculous_coding/blip.gd
-res://addons/ridiculous_coding/boom.gd
+res://addons/ridiculous_coding/dock.tscn
 res://addons/ridiculous_coding/dock.gd
+res://addons/ridiculous_coding/dock_checkbox.gd
+res://addons/ridiculous_coding/boom.gd
+res://addons/ridiculous_coding/newline.gd
+res://addons/ridiculous_coding/plugin.gd
+res://addons/ridiculous_coding/blip.gd

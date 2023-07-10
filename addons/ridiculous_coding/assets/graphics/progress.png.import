@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgfswr2crlxuv"
-path="res://.godot/imported/boom.png-8824a5a1f762eb053b72081ff54ed1ba.ctex"
+uid="uid://bmt05lruci7f3"
+path="res://.godot/imported/progress.png-b70bd700590d25047bb461e397bed313.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/ridiculous_coding/boom.png"
-dest_files=["res://.godot/imported/boom.png-8824a5a1f762eb053b72081ff54ed1ba.ctex"]
+source_file="res://addons/ridiculous_coding/assets/graphics/progress.png"
+dest_files=["res://.godot/imported/progress.png-b70bd700590d25047bb461e397bed313.ctex"]
 
 [params]
 

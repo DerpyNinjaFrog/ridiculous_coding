@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b76vnt4rv4p0q"]
+[gd_scene load_steps=9 format=3 uid="uid://djgvy3c7wsmng"]
 
 [ext_resource type="Script" path="res://addons/ridiculous_coding/dock.gd" id="1_bwupq"]
-[ext_resource type="Texture2D" uid="uid://c3ltnrdrb2qmg" path="res://addons/ridiculous_coding/under.png" id="3_vdb3k"]
-[ext_resource type="AudioStream" uid="uid://g6lh6kjt0ynq" path="res://addons/ridiculous_coding/fireworks.wav" id="4_1o4lv"]
-[ext_resource type="Texture2D" uid="uid://dmvuvaqf5uhwi" path="res://addons/ridiculous_coding/progress.png" id="4_y2kl4"]
+[ext_resource type="Texture2D" uid="uid://dsnn50ksl8d4w" path="res://addons/ridiculous_coding/assets/graphics/under.png" id="2_i5c6e"]
+[ext_resource type="Texture2D" uid="uid://bmt05lruci7f3" path="res://addons/ridiculous_coding/assets/graphics/progress.png" id="3_52dor"]
+[ext_resource type="AudioStream" uid="uid://bnadeocw0wetm" path="res://addons/ridiculous_coding/assets/audio/fireworks.wav" id="4_633xu"]
+[ext_resource type="Script" path="res://addons/ridiculous_coding/dock_checkbox.gd" id="5_0ducd"]
 
 [sub_resource type="Gradient" id="Gradient_v1eyn"]
 offsets = PackedFloat32Array(0, 0.419689, 0.715026, 1)
@@ -49,28 +50,26 @@ layout_mode = 2
 [node name="xpLabel" type="Label" parent="VBoxContainer/XP/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "XP: 201 / 350"
+text = "XP: 1558 / 1850"
 
 [node name="levelLabel" type="Label" parent="VBoxContainer/XP/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Level: 3"
+text = "Level: 8"
 horizontal_alignment = 2
 
 [node name="ProgressBar" type="TextureProgressBar" parent="VBoxContainer/XP"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
-max_value = 150.0
-value = 1.0
+max_value = 400.0
+value = 108.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_vdb3k")
-texture_progress = ExtResource("4_y2kl4")
+texture_under = ExtResource("2_i5c6e")
+texture_progress = ExtResource("3_52dor")
 
 [node name="fire1" type="Control" parent="VBoxContainer/XP/ProgressBar"]
 layout_mode = 1
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="VBoxContainer/XP/ProgressBar/fire1"]
 rotation = -0.785397
@@ -83,9 +82,6 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_top = 8.0
-offset_right = 40.0
-offset_bottom = 48.0
 grow_horizontal = 0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="VBoxContainer/XP/ProgressBar/fire2"]
@@ -98,7 +94,7 @@ process_material = SubResource("ParticleProcessMaterial_x4b51")
 wait_time = 3.0
 
 [node name="sfxFireworks" type="AudioStreamPlayer" parent="VBoxContainer/XP/ProgressBar"]
-stream = ExtResource("4_1o4lv")
+stream = ExtResource("4_633xu")
 volume_db = -12.0
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
@@ -110,36 +106,46 @@ layout_mode = 2
 size_flags_horizontal = 11
 button_pressed = true
 text = "Explosions"
+script = ExtResource("5_0ducd")
 
 [node name="shakeCheckbox" type="CheckButton" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 11
 button_pressed = true
 text = "Shake"
+script = ExtResource("5_0ducd")
+type = "shake"
 
 [node name="blipCheckbox" type="CheckButton" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 11
 button_pressed = true
 text = "Blips"
+script = ExtResource("5_0ducd")
+type = "blips"
 
 [node name="charsCheckbox" type="CheckButton" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 11
-button_pressed = true
 text = "Keys"
+script = ExtResource("5_0ducd")
+type = "chars"
 
 [node name="soundCheckbox" type="CheckButton" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 11
 button_pressed = true
 text = "Sound"
+script = ExtResource("5_0ducd")
+type = "sound"
 
 [node name="fireworksCheckbox" type="CheckButton" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 11
 button_pressed = true
 text = "Fireworks"
+script = ExtResource("5_0ducd")
+type = "fireworks"
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2

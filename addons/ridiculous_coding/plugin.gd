@@ -28,9 +28,8 @@ func _enter_tree():
 
 	# Add the main panel
 	dock = Dock.instantiate()
-	typing.connect(Callable(dock,"_on_typing"))
+	typing.connect(dock._on_typing)
 	add_control_to_dock(DOCK_SLOT_RIGHT_BL, dock)
-	
 
 func _exit_tree():
 	if dock:
@@ -119,7 +118,7 @@ func caret_changed(textedit):
 func text_changed(textedit : TextEdit):
 	var line_height = textedit.get_line_height()
 	var pos = textedit.get_caret_draw_pos() + Vector2(0,-line_height/2.0)
-	emit_signal("typing")
+	typing.emit()
 	
 	if editors.has(textedit):
 		# Deleting

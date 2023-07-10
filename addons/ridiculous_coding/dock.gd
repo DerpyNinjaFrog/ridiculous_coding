@@ -30,8 +30,9 @@ var stats: ConfigFile = ConfigFile.new()
 @onready var level_label: Label = $VBoxContainer/XP/HBoxContainer/levelLabel
 @onready var reset_button: Button = $VBoxContainer/CenterContainer/resetButton
 
+@onready var checkboxes : Array[Node] = $VBoxContainer/GridContainer.get_children()
 
-func _ready():
+func _ready() -> void:
 	reset_button.pressed.connect(on_reset_button_pressed)
 	
 	load_checkbox_state()
@@ -42,7 +43,7 @@ func _ready():
 	stop_fireworks()
 
 
-func load_experience_progress():
+func load_experience_progress() -> void:
 	if stats.load(STATS_FILE) == OK:
 		level = stats.get_value("xp", "level", 1)
 		xp = stats.get_value("xp", "xp", 0)
@@ -60,13 +61,13 @@ func load_experience_progress():
 	progress.value = xp - (xp_next - progress.max_value)
 
 
-func save_experioence_progress():
+func save_experience_progress() -> void:
 	stats.set_value("xp", "level", level)
 	stats.set_value("xp", "xp", xp)
 	stats.save(STATS_FILE)
 
 
-func _on_typing():
+func _on_typing() -> void:
 	xp += 1
 	progress.value += 1
 	
@@ -79,11 +80,11 @@ func _on_typing():
 		if fireworks: 
 			start_fireworks()
 	
-	save_experioence_progress()
+	save_experience_progress()
 	update_progress()
 
 
-func start_fireworks():
+func start_fireworks() -> void:
 	sfx_fireworks.play()
 	fireworks_timer.start()
 	
@@ -102,63 +103,26 @@ func update_progress():
 
 
 func connect_checkboxes():
-	explosion_checkbox.toggled.connect(func(toggled): 
-		explosions = toggled
-		save_checkbox_state()
-	)
-	
-	blip_checkbox.toggled.connect(func(toggled): 
-		blips = toggled
-		save_checkbox_state()
-	)
-	
-	chars_checkbox.toggled.connect(func(toggled): 
-		chars = toggled
-		save_checkbox_state()
-	)
-	
-	shake_checkbox.toggled.connect(func(toggled): 
-		shake = toggled
-		save_checkbox_state()
-	)
-	
-	sound_checkbox.toggled.connect(func(toggled): 
-		sound = toggled
-		save_checkbox_state()
-	)
-	
-	fireworks_checkbox.toggled.connect(func(toggled): 
-		fireworks = toggled
-		save_checkbox_state()
-	)
+	for checkbox in checkboxes:
+		checkbox.checkbox_toggled.connect(_on_checkbox_toggled)
 
+func _on_checkbox_toggled(checkbox, toggled):
+	set(checkbox, toggled)
+	save_checkbox_state()
 
 func save_checkbox_state():
-	stats.set_value("settings", "explosion", explosions)
-	stats.set_value("settings", "blips", blips)
-	stats.set_value("settings", "chars", chars)
-	stats.set_value("settings", "shake", shake)
-	stats.set_value("settings", "sound", sound)
-	stats.set_value("settings", "fireworks", fireworks)
-	stats.save(STATS_FILE)
+	for checkbox in checkboxes:
+		stats.set_value("settings", checkbox.type, get(checkbox.type))
 
+	stats.save(STATS_FILE)
 
 func load_checkbox_state():
 	if stats.load(STATS_FILE) == OK:
-		explosion_checkbox.button_pressed = stats.get_value("settings", "explosion", true)
-		blip_checkbox.button_pressed = stats.get_value("settings", "blips", true)
-		chars_checkbox.button_pressed = stats.get_value("settings", "chars", true)
-		shake_checkbox.button_pressed = stats.get_value("settings", "shake", true)
-		sound_checkbox.button_pressed = stats.get_value("settings", "sound", true)
-		fireworks_checkbox.button_pressed = stats.get_value("settings", "fireworks", true)
-	else:
-		explosion_checkbox.button_pressed = explosions
-		blip_checkbox.button_pressed = blips
-		chars_checkbox.button_pressed = chars
-		shake_checkbox.button_pressed = shake
-		sound_checkbox.button_pressed = sound
-		fireworks_checkbox.button_pressed = fireworks
-
+		for checkbox in checkboxes:
+			set(checkbox.type, stats.get_value("settings", checkbox.type, true))
+	
+	for checkbox in checkboxes:
+		checkbox.button_pressed = get(checkbox.type)
 
 func on_reset_button_pressed():
 	level = 1
